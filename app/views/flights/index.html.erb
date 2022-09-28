@@ -1,0 +1,6 @@
+<%= form_with url: "/index", method: :get do |form| %>
+  <%= form.select(:departure_id, @airport_options) %>
+  <%= form.select(:arrival_id, @airport_options) %>
+  <%= form.select(:passengers, [1,2,3,4]) %>
+  <%= form.submit "Search" %>
+<% end %>

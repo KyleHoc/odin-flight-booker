@@ -1,0 +1,22 @@
+<% if @flights %>
+  <%= form_with(url: new_booking_path, method: "get") do |form| %>
+    <% @flights.each do |f| %>
+      <p>_______________________________________________________________</p>
+      <br>
+      <p>Departure Airport: <%= f.departure_airport.code %></p>
+      <p>Arrival Airport: <%= f.arrival_airport.code %></p>
+      <p>Date: <%= f.start_time_formatted %></p>
+      <% form.hidden_field :passenger_count, :value => params[:passenger_count] %>
+      <p><%= form.radio_button :flight_id, f.id %>
+      <%= form.label :booking, "Book this flight" %></p>
+    <% end %>
+    <% unless @flights.empty? %>
+      <br><%= form.submit "Submit" %>
+    <% end %>
+  <% end %>
+<% end %>
+
+<% if @flights.empty? %>
+  <p>_______________________________________________________________</p>
+  <p><br>There are no availible flights for this search criteria</p>
+<% end %>

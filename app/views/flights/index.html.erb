@@ -1,6 +1,17 @@
-<%= form_with url: "/index", method: :get do |form| %>
+<%= form_with(url: "/flights", method: "get") do |form| %>
+  <%= form.label :departure_id, "Departure Airport:" %>
   <%= form.select(:departure_id, @airport_options) %>
+  <p></p>
+  <%= form.label :arrival_id, "Arrival Airport:" %>
   <%= form.select(:arrival_id, @airport_options) %>
-  <%= form.select(:passengers, [1,2,3,4]) %>
+  <p></p>
+  <%= form.label "Number of Passengers:"%>
+  <%= form.select(:passenger_count, [1,2,3,4]) %>
+  <p></p>
+  <%= form.label :start_time, "Departure Date:" %>
+  <%= select_tag "start_time", options_from_collection_for_select(Flight.get_start_time, 'start_time', :start_time_formatted) %>
+  <p></p>
   <%= form.submit "Search" %>
 <% end %>
+
+<%= render "search_results" %>

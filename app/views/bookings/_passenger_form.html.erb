@@ -1,0 +1,6 @@
+<%= fields_for :passenger, @passenger do |person| %>
+  <%= person.label :name, "Name:" %>
+  <%= person.text_field :name %>
+  <br><%= person.label :email, "Email Address:" %>
+  <%= person.text_field :email %>
+<% end %>

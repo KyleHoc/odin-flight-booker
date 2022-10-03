@@ -6,7 +6,7 @@
       <p>Departure Airport: <%= f.departure_airport.code %></p>
       <p>Arrival Airport: <%= f.arrival_airport.code %></p>
       <p>Date: <%= f.start_time_formatted %></p>
-      <% form.hidden_field :passenger_count, :value => params[:passenger_count] %>
+      <%= form.hidden_field :passenger_count, :value => params[:passenger_count] %>
       <p><%= form.radio_button :flight_id, f.id %>
       <%= form.label :booking, "Book this flight" %></p>
     <% end %>

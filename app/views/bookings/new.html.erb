@@ -1,9 +1,10 @@
 <h1>Booking information:</h1>
 <%= form_with model: @booking do |form| %>
+  <p>ghuehge <%= @passenger_count %></p>
   <p>Date: <%= @booked_flight.start_time_formatted %></p>
   <p>Departure: <%= @booked_flight.departure_airport.code %></p>
   <p>Arrival: <%= @booked_flight.arrival_airport.code %></p>
-  <p>Flight ID: <%= @booking.flight_id %></p>
+  <p>Flight ID: <%= @flight_id %></p>
   <%= render "passenger_form" %>
   <%= form.submit "Submit" %>
 <% end %>

@@ -8,7 +8,8 @@ class BookingsController < ApplicationController
   end
 
   def create
-    @booking = Booking.create(booking_params)
+    @booking = Booking.create(booking_params) #not quite sure what to do after this. Do I just need to redirect after the create?
+    redirect_to @booking
   end
 
   private

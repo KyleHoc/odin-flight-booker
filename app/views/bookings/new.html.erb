@@ -1,5 +1,7 @@
 <h1>Booking information:</h1>
 <%= form_with model: @booking do |form| %>
+  <%= form.hidden_field :flight_id, :value => @booked_flight.id %>
+  <%= form.hidden_field :passenger_count, :value => @passenger_count %>
   <p>Date: <%= @booked_flight.start_time_formatted %></p>
   <p>Departure: <%= @booked_flight.departure_airport.code %></p>
   <p>Arrival: <%= @booked_flight.arrival_airport.code %></p>

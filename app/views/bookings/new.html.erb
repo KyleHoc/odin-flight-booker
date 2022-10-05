@@ -4,10 +4,11 @@
   <p>Departure: <%= @booked_flight.departure_airport.code %></p>
   <p>Arrival: <%= @booked_flight.arrival_airport.code %></p>
   <p>Flight ID: <%= @flight_id %></p>
-  <%= form.fields_for :passengers do |person| %> <!-- won't display more than one set of fields -->
+  <%= form.fields_for :passengers do |person| %>
     <%= person.label :name, "Name:" %>
     <%= person.text_field :name %>
     <br><%= person.label :email, "Email Address:" %>
-    <%= person.text_field :email %>
+    <%= person.text_field :email %><br>
   <% end %>
+  <%= form.submit "Submit" %>
 <% end %>

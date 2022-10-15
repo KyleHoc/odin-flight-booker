@@ -9,7 +9,14 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.create(booking_params)
-    redirect_to booking_path(@booking)
+
+    if @booking.save
+      passengers = @booking.passengers
+      passengers.each do |passenger|
+        PassengerMailer.with(passenger: passenger).confirmation_email.deliver_now
+      end
+      redirect_to booking_path(@booking)
+    end
   end
 
   def show
